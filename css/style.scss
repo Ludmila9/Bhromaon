@@ -1,0 +1,555 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Aleo|Josefin+Sans:400,700&display=swap');
+
+
+// MIXIN - start
+
+$accent: #5474fd;
+$light: #999;
+$dark: #333;
+
+@for $i from 1 through 12 {
+  .col-#{$i} { width: 8.3333% * $i; }
+}
+ 
+@mixin title() {
+	font-family: 'Aleo', Arial, serif;
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 26px;
+	color: #FFF;
+	text-transform: capitalize;
+}
+
+// &__title {
+// 	@include title();
+// }
+
+@mixin text() {
+	font-family: 'Josefin Sans', Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 26px;
+	color: #FFF;
+}
+
+// &__text {
+// 	@include text();
+// }
+
+// MIXIN - end
+
+
+// BASE STYLE - start
+
+body{
+	border: 15px solid #fff;
+}
+
+*{
+	box-sizing: border-box;
+}
+ul, li{
+	list-style: none;
+	text-decoration: none;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+
+.container{
+	max-width: 1770px;
+	padding: 100px 330px;
+	margin: 0 auto;
+	display: flex;
+}
+
+.visually-hidden{
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+.btn{
+	height: 55px;
+	background: $accent;
+	color: #fff;
+	outline-style: none;
+	font-family: Aleo, Arial, serif;
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: uppercase;
+	line-height: 55px;
+	border: none;
+	padding: 0 30px;
+	transition: background 0.5s ease;
+	text-align: center;
+}
+// BASE STYLE - end
+
+
+
+// HEADER - start
+header{
+	height: 100vh;
+	background-image: url(../img/header-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.header{
+	& .container{
+		height: calc(100vh - 80px);
+		align-content: center;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 250px;
+		justify-content: flex-start;
+	}
+	&__title{
+		font-family: 'Josefin Sans', Arial, sans-serif;
+		font-size: 48px;
+		font-weight: 700;
+		letter-spacing: 1px;
+		line-height: 26px;
+		text-transform: uppercase;
+		color: #FFF;
+		margin: 25px 0 10px;
+	}
+	&__text{
+		font-family: 'Josefin Sans', Arial, sans-serif;
+		font-size: 22px;
+		font-weight: 400;
+		letter-spacing: 5px;
+		line-height: 26px;
+		text-transform: capitalize;
+		color: #FFF;
+		margin: 17px 0;
+	}
+	&-search{
+		height: 60px;
+		width: 660px;
+		background-color: #FFF;
+		border: 1px solid #fff;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 20px 0;
+		& input{
+			width: calc(100% - 150px);
+			border: none;
+			color: $dark;
+			&:-moz-placeholder {
+				font-family: 'Josefin Sans', Arial, sans-serif;
+				font-size: 14px;
+				font-weight: 400;
+				letter-spacing: 2px;
+				line-height: 26px;
+			    color: $light;
+			    text-align: center;
+			   }
+			&::-moz-placeholder {
+				font-family: 'Josefin Sans', Arial, sans-serif;
+				font-size: 14px;
+				font-weight: 400;
+				letter-spacing: 2px;
+				line-height: 26px;
+				text-align: center;
+			}
+			&:-ms-input-placeholder {
+				font-family: 'Josefin Sans', Arial, sans-serif;
+				font-size: 14px;
+				font-weight: 400;
+				letter-spacing: 2px;
+				line-height: 26px;
+				text-align: center;
+			}
+			&::-webkit-input-placeholder {
+				font-family: 'Josefin Sans', Arial, sans-serif;
+				font-size: 14px;
+				font-weight: 400;
+				letter-spacing: 2px;
+				line-height: 26px;
+				text-align: center;
+			}
+		}
+		&-btn{
+			width: 150px;
+			font-size: 14px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	&-scroll{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-top: 90px;
+		& p{
+			font-family: 'Josefin Sans', Arial, sans-serif;
+			font-size: 14px;
+			font-weight: 400;
+			letter-spacing: 2px;
+			line-height: 26px;
+			color: #FFF;
+			margin-bottom: 0;
+		}
+	}
+	&-line{
+		width: 100%;
+		height: 80px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		background-color: $accent;
+		position: relative;
+		bottom: 0;
+		& .container{
+			width: 100%;
+			height: auto;
+			padding: 0 330px;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	&__logo{
+		margin: 10px 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		letter-spacing: 1px;
+		& a{
+			font-family: 'Miriad Pro';
+			font-size: 24px;
+			line-height: 26px;
+			color: #FFF;
+			text-transform: uppercase;
+		}
+	}
+}
+
+// HEADER - end
+
+
+
+// NAV - start
+
+.nav-menu{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	&__item{
+		margin: 0 20px;
+		&:last-child{
+			margin-right: 0;
+		}
+		& a{
+			font-family: 'Aleo', Arial, serif;
+			font-size: 14px;
+			line-height: 26px;
+			text-transform: uppercase;
+			color: #FFF;
+			white-space: nowrap;
+		}
+	}
+}
+
+// NAV - end
+
+
+
+// ABOUT - start
+.about{
+	background-image: url(../img/about-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-color: $dark;
+	display: flex;
+	&-box{
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&-content{
+		width: calc((100% - 30px)/2);
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		align-items: flex-start;
+		
+	}
+	&__title{
+		@include title();
+		margin: 110px 0 40px;
+	}
+	&__text{
+		@include text();
+		display: flex;
+		flex-direction: column;
+		margin: 20px 0 10px;
+	}
+	&-btn{
+		margin: 35px 0;
+		width: 225px;
+	}
+	
+	&-img{
+		width: calc((100% - 30px)/2);
+		height: 450px;
+		display: flex;
+		flex-direction: column;
+		align-content: space-between;
+		object-fit: cover;
+		object-position: center;
+		& img:nth-child(1){
+			position: relative;
+			left: 65px;
+			// top: 10px;
+			width: 350px;
+			height: 220px;
+		}
+		& img:nth-child(2){
+			position: relative;
+			left: 190px;
+			// top: 35px;
+			width: 350px;
+			height: 220px;
+		}
+	}
+}
+
+
+// ABOUT - end
+
+
+
+// STEP - start
+.step{
+	height: 335px;
+	background-color: #333;
+	// background-image: url(../img/Shape.png); 
+	& .container{
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+	}
+	&-box{
+		width: 33.33333%;
+		display: flex;
+		flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	}
+	&-icon{
+		width: 65px;
+		height: 65px;
+		background-color: $dark;
+		z-index: 20;
+	}
+	&__title{
+		font-family: 'Aleo', Arial, serif;
+		font-size: 36px;
+		line-height: 26px;
+		font-weight: 400;
+		color: #FFF;
+		text-transform: capitalize;
+	}
+	&__img{
+		position: absolute;
+		top: 25%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		z-index: 10;
+
+	}
+}
+// STEP - end
+
+
+
+// CITY - start
+.city{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	&-box{
+		width: 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		&-1{
+			background-image: url(../img/spain.jpg);
+		}
+		&-2{
+			background-image: url(../img/spain-1.jpg);
+			& .container{
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+	}
+	&-content{
+		background-color: rgba(57, 57, 57, .7);
+		margin-top: 130px;
+		padding: 35px 30px;
+	}
+	&__title{
+		font-family: 'Josefin Sans', Arial, sans-serif;
+		font-size: 20px;
+		line-height: 26px;
+		color: #FFF;
+		&-more{
+			font-family: 'Josefin Sans', Arial, sans-serif;
+			font-size: 20px;
+			line-height: 26px;
+			color: #FFF;
+			text-transform: uppercase;
+		}
+	}
+	&__text{
+		@include text();
+	}
+	&-btn{
+		width: 225px;
+		margin: 20px 0 25px;
+	}
+}
+// CITY - end
+
+
+
+// REVIEWS - start
+.reviews{
+	background-image: url(../img/review-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	& .container{
+		padding-top: 90px;
+		flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	}
+	&__title{
+		@include title();
+	}
+	&-box{
+		margin: 60px 0 100px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		background-color: $dark;
+	}
+	&-content{
+		padding: 30px 50px 40px 60px;
+		
+	}
+	&-name{
+		@include text();
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+	&__text{
+		@include text();
+		line-height: 23px;
+		margin-top: 40px;
+		&:before{
+			content: '\f10d';
+			display: inline-block;
+			font-family: 'FontAwesome', Arial, serif;
+			font-size: 16px;
+			color: $accent;
+			margin-right: 10px;
+			position: relative;
+			bottom: 20px;
+		}
+	}
+}
+// REVIEWS - end
+
+
+
+// FOOTER - start
+footer{
+	background-color: #232323;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 100px 0 50px;
+}
+.footer{
+	&__logo{
+		margin: 10px 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		& a{
+			font-family: 'Miriad Pro';
+			font-size: 24px;
+			line-height: 26px;
+			color: #FFF;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+	}
+	&__text{
+		@include text();
+		margin: 5px 0 15px;
+	}
+	&-soc-list{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0;
+		&__item{
+			margin: 0 10px;
+		}
+	}
+}
+// FOOTER - end
+
+.fa{
+	font-family: 'FontAwesome', Arial, serif;
+	font-size: 16px;
+	font-weight: 400;
+	color: #fff;
+	&:hover{
+		color: $accent;
+	}
+}
+
+.icon{
+	&-search{
+		fill: #5474fd;
+        fill-rule: evenodd
+	}
+	&-check{
+		fill: #ff6363;
+        fill-rule: evenodd;
+	}
+	&-enjoy{
+		fill: #00a2ff;
+        fill-rule: evenodd;
+	}
+}
