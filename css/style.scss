@@ -59,8 +59,8 @@ a{
 }
 
 .container{
-	max-width: 1770px;
-	padding: 100px 330px;
+	max-width: 1110px;
+	padding: 100px 15px;
 	margin: 0 auto;
 	display: flex;
 }
@@ -89,6 +89,21 @@ a{
 	padding: 0 30px;
 	transition: background 0.5s ease;
 	text-align: center;
+	position: relative;
+	overflow: hidden;
+	&:after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(120deg, transparent, rgba(255,255,255,.3), transparent);
+		transition: 0.5s ease;
+	}
+	&:hover:after{
+		left: 100%;
+	}
 }
 // BASE STYLE - end
 
@@ -217,7 +232,8 @@ header{
 		& .container{
 			width: 100%;
 			height: auto;
-			padding: 0 330px;
+			padding: 0 15px;
+			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
@@ -252,8 +268,33 @@ header{
 	justify-content: space-between;
 	&__item{
 		margin: 0 20px;
+		position: relative;
 		&:last-child{
 			margin-right: 0;
+		}
+		:before{
+			content: '';
+			width: 120%;
+			height: 1px;
+			background-color: #FFF;
+			display: inline-block;
+			position: absolute;
+			top: 10px;
+			left: -10%;
+			opacity: 0;
+			transition: 0.5s ease;
+		}
+		:after{
+			content: '';
+			width: 120%;
+			height: 1px;
+			background-color: #FFF;
+			display: inline-block;
+			position: absolute;
+			bottom: 10px;
+			left: -10%;
+			opacity: 0;
+			transition: 0.5s ease;
 		}
 		& a{
 			font-family: 'Aleo', Arial, serif;
@@ -262,6 +303,14 @@ header{
 			text-transform: uppercase;
 			color: #FFF;
 			white-space: nowrap;
+			&:hover:before{
+				top: -10px;
+				opacity: 1;
+			}
+			&:hover:after{
+				bottom: -5px;
+				opacity: 1;
+			}
 		}
 	}
 }
@@ -358,9 +407,10 @@ header{
 	    align-items: center;
 	}
 	&-icon{
-		width: 65px;
-		height: 65px;
+		width: 95px;
+		height: 95px;
 		background-color: $dark;
+		padding: 15px;
 		z-index: 20;
 	}
 	&__title{
@@ -458,6 +508,8 @@ header{
 		justify-content: space-between;
 		align-items: stretch;
 		background-color: $dark;
+		
+		
 	}
 	&-img{
 		& img{
@@ -469,7 +521,21 @@ header{
 	}
 	&-content{
 		padding: 30px 50px 40px 60px;
-		
+		position: relative;
+		overflow: hidden;
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 50%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+			transition: 0.4s ease;
+		}
+		&:hover:after{
+			left: 100%;
+		}
 	}
 	&-name{
 		@include text();
@@ -518,6 +584,10 @@ footer{
 			color: #FFF;
 			letter-spacing: 1px;
 			text-transform: uppercase;
+			transition: color 0.3s ease;
+			&:hover{
+				color: $accent;
+			}
 		}
 	}
 	&__text{
@@ -542,6 +612,7 @@ footer{
 	font-size: 16px;
 	font-weight: 400;
 	color: #fff;
+	transition: color 0.3s ease;
 	&:hover{
 		color: $accent;
 	}
